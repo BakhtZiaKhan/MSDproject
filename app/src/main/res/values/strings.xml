@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MSD</string>
+    <string name="enter_weight_in_kg" />
+    <string name="enter_height_in_cm" />
+    <string name="back_to_main" />
+</resources>

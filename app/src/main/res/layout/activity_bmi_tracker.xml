@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".BMITracker">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="BMI Calculator"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_weight_in_kg"
+        android:inputType="numberDecimal"
+        android:minHeight="50dp"
+        android:textColorHint="#3F51B5" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_height_in_cm"
+        android:inputType="numberDecimal"
+        android:minHeight="50dp"
+        android:textColorHint="#3F51B5" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/backToMainButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="navigateToMain"
+        android:text="@string/back_to_main" />
+
+</LinearLayout>

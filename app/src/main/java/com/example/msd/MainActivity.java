@@ -17,6 +17,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,14 +32,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private TextView steps;
     private ProgressBar progressBar;
 
-    Button button1;
+    ImageButton button1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button1 = (Button) findViewById(R.id.button_1id);
+        button1 = (ImageButton) findViewById(R.id.button_1id);
 
         progressBar = findViewById(R.id.progressBar);
 

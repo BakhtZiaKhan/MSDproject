@@ -3,8 +3,7 @@
     <string name="enter_weight_in_kg" >Enter your weight in kilograms</string>
     <string name="enter_height_in_cm" >Enter your height in CM</string>
     <string name="back_to_main">Back to Main</string>
-
-
+    <string name="description" >BMI </string>
 
 
 </resources>

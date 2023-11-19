@@ -118,4 +118,71 @@
         android:layout_marginTop="10dp" />
 
 
+    <View
+        android:id="@+id/blueRectangle"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="#0000FF" />
+
+
+    <ImageButton
+        android:id="@+id/button_1id"
+        android:layout_width="107dp"
+        android:layout_height="86dp"
+        android:layout_above="@id/blueRectangle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="296dp"
+        android:layout_marginBottom="-2dp"
+        android:backgroundTint="#0000FF"
+        android:contentDescription="@string/description"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/scale" />
+
+    <ImageButton
+        android:id="@+id/button_2id"
+        android:layout_width="107dp"
+        android:layout_height="84dp"
+        android:layout_above="@id/blueRectangle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="275dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="-2dp"
+        android:backgroundTint="#0000FF"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/steps" />
+
+    <ImageButton
+        android:id="@+id/button_3id"
+        android:layout_width="98dp"
+        android:layout_height="71dp"
+        android:layout_above="@id/blueRectangle"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="676dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="-16dp"
+        android:backgroundTint="#0000FF"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/dumbell" />
+
+
+
+
+
+
+
+
+
+
+
+
+
 </RelativeLayout>

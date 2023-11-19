@@ -99,14 +99,15 @@
 
     <ImageButton
         android:id="@+id/button_3id"
-        android:layout_width="107dp"
-        android:layout_height="84dp"
+        android:layout_width="98dp"
+        android:layout_height="71dp"
+        android:layout_above="@id/blueRectangle"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="700dp"
-        android:layout_marginEnd="181dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginTop="676dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="-16dp"
         android:backgroundTint="#0000FF"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/dumbell" />

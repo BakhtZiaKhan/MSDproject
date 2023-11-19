@@ -12,8 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class BMITracker extends AppCompatActivity {
-    ImageButton button2;
+
     ImageButton button1;
+    ImageButton button2;
+    ImageButton button3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -25,6 +27,7 @@ public class BMITracker extends AppCompatActivity {
 
         button2 = (ImageButton) findViewById(R.id.button_2id);
         button1 = (ImageButton) findViewById(R.id.button_1id);
+        button3 = (ImageButton) findViewById(R.id.button_3id);
 
         EditText editTextWeight = findViewById(R.id.weight);
         EditText editTextHeight = findViewById(R.id.height);
@@ -71,7 +74,18 @@ public class BMITracker extends AppCompatActivity {
 
         );
 
+        button3.setOnClickListener(new View.OnClickListener() {
 
+                                       @Override
+                                       public void onClick(View view) {
+
+                                           Intent intent = new Intent(BMITracker.this, ExerciseActivity.class);
+                                           startActivity(intent);
+
+                                       }
+                                   }
+
+        );
 
 
 

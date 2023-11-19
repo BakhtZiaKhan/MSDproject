@@ -18,7 +18,6 @@
         android:theme="@style/Theme.MSD"
         tools:targetApi="33">
 
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -28,10 +27,15 @@
             </intent-filter>
         </activity>
 
-
         <activity
             android:name=".BMITracker"
             android:exported="false">
+        </activity>
+
+
+        <activity
+            android:name=".ExerciseActivity"
+            android:exported="true">
 
         </activity>
 

@@ -4,6 +4,11 @@
     <string name="enter_height_in_cm" >Enter your height in CM</string>
     <string name="back_to_main">Back to Main</string>
     <string name="description" >BMI </string>
+    <string name="side_plank">Helps improve your posture\n1) Helps flexibility</string>
+    <string name="lunges">Helps build leg muscle</string>
+    <string name="stepping">Help knee strength</string>
+    <string name="ab_crunch">Helps build core </string>
+    <string name="push_ups">Helps chest development </string>
 
 
 </resources>

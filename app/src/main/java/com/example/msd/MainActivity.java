@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private ProgressBar progressBar;
 
     ImageButton button1;
+    ImageButton button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         setContentView(R.layout.activity_main);
 
         button1 = (ImageButton) findViewById(R.id.button_1id);
+        button2 = (ImageButton) findViewById(R.id.button_2id);
 
         progressBar = findViewById(R.id.progressBar);
 
@@ -62,6 +64,21 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                                    }
 
         );
+
+        button2.setOnClickListener(new View.OnClickListener() {
+
+                                       @Override
+                                       public void onClick(View view) {
+
+                                           Intent intent = new Intent(MainActivity.this,MainActivity .class);
+                                           startActivity(intent);
+
+                                       }
+                                   }
+
+        );
+
+
 
     }
 

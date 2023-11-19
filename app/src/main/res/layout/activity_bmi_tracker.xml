@@ -1,60 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="20dp"
     tools:context=".BMITracker">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="BMI Calculator"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/weight"
-
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_weight_in_kg"
-        android:inputType="numberDecimal"
-        android:minHeight="50dp"
-        android:textColorHint="#3F51B5" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_centerInParent="true">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/height"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="BMI Calculator"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_weight_in_kg"
+            android:inputType="numberDecimal"
+            android:minHeight="50dp"
+            android:textColorHint="#3F51B5" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_height_in_cm"
+            android:inputType="numberDecimal"
+            android:minHeight="50dp"
+            android:textColorHint="#3F51B5" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/blueRectangle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_height_in_cm"
-        android:inputType="numberDecimal"
-        android:minHeight="50dp"
-        android:textColorHint="#3F51B5" />
+        android:layout_height="80dp"
+        android:background="#0000FF"
+        android:layout_alignParentBottom="true" />
 
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit" />
 
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+    <ImageButton
+        android:id="@+id/button_1id"
+        android:layout_width="107dp"
+        android:layout_height="86dp"
+        android:layout_above="@id/blueRectangle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
 
-    <Button
-        android:id="@+id/backToMainButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="navigateToMain"
-        android:text="@string/back_to_main" />
+        android:layout_marginEnd="296dp"
+        android:layout_marginBottom="-2dp"
+        android:backgroundTint="#0000FF"
+        android:contentDescription="@string/description"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/scale" />
 
-</LinearLayout>
+
+
+
+
+
+</RelativeLayout>

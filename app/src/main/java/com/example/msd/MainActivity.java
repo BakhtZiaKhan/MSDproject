@@ -113,19 +113,21 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         });
     }
 
+
     private void saveData() {
         SharedPreferences sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        // Store previewsTotalSteps as an int
-        editor.putInt("key1", previewsTotalSteps);
+        editor.putString("key1", String.valueOf(previewsTotalSteps));
         editor.apply();
     }
 
+
     private void loadData() {
         SharedPreferences sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE);
-        // Retrieve previewsTotalSteps as an int (no need for casting)
-        previewsTotalSteps = sharedPref.getInt("key1", 0);
+        int savedNumber = (int) sharedPref.getFloat("key1", 0f);
+        previewsTotalSteps = savedNumber;
     }
+
 
 
     @Override

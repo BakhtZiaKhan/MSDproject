@@ -5,17 +5,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 public class BMITracker extends AppCompatActivity {
-
+    ImageButton button2;
+    ImageButton button1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi_tracker);
+
+        button2 = (ImageButton) findViewById(R.id.button_2id);
+        button1 = (ImageButton) findViewById(R.id.button_1id);
+
         EditText editTextWeight = findViewById(R.id.weight);
         EditText editTextHeight = findViewById(R.id.height);
         Button button = findViewById(R.id.btnSubmit);
@@ -32,12 +42,39 @@ public class BMITracker extends AppCompatActivity {
 
         });
 
-    }
+        button1.setOnClickListener(new View.OnClickListener() {
 
-    public void navigateToMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
+                                       @Override
+                                       public void onClick(View view) {
 
+                                           Intent intent = new Intent(BMITracker.this, BMITracker.class);
+                                           startActivity(intent);
+
+                                       }
+                                   }
+
+        );
+
+
+
+
+        button2.setOnClickListener(new View.OnClickListener() {
+
+                                       @Override
+                                       public void onClick(View view) {
+
+                                           Intent intent = new Intent(BMITracker.this,MainActivity .class);
+                                           startActivity(intent);
+
+                                       }
+                                   }
+
+        );
+
+
+
+
+
+    }
 
 }

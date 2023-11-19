@@ -97,5 +97,19 @@
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/steps" />
 
+    <ImageButton
+        android:id="@+id/button_3id"
+        android:layout_width="107dp"
+        android:layout_height="84dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="700dp"
+        android:layout_marginEnd="181dp"
+        android:layout_marginBottom="0dp"
+        android:backgroundTint="#0000FF"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/dumbell" />
+
 
 </RelativeLayout>

@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     ImageButton button1;
     ImageButton button2;
 
+    ImageButton button3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         button1 = (ImageButton) findViewById(R.id.button_1id);
         button2 = (ImageButton) findViewById(R.id.button_2id);
+        button3 = (ImageButton) findViewById(R.id.button_3id);
 
         progressBar = findViewById(R.id.progressBar);
 
@@ -71,6 +74,19 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                                        public void onClick(View view) {
 
                                            Intent intent = new Intent(MainActivity.this,MainActivity .class);
+                                           startActivity(intent);
+
+                                       }
+                                   }
+
+        );
+
+        button3.setOnClickListener(new View.OnClickListener() {
+
+                                       @Override
+                                       public void onClick(View view) {
+
+                                           Intent intent = new Intent(MainActivity.this, ExerciseActivity.class);
                                            startActivity(intent);
 
                                        }

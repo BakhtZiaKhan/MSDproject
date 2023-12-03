@@ -4,18 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/black_color"
     tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="116dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginBottom="635dp"
         android:text="Steps Counter"
-        android:textColor="#3a9bdc"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textFontWeight="800"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -40,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="Steps"
-            android:textColor="#00008B"
+            android:textColor="@color/white"
             android:textSize="28sp"
             android:textStyle="bold" />
 
@@ -51,7 +55,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="170dp"
             android:text="Goal 8000"
-            android:textColor="#00008B"
+            android:textColor="@color/white"
             android:textSize="20sp" />
 
 
@@ -62,24 +66,24 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:background="#0000FF" />
+        android:background="@drawable/shadowed_background" />
 
 
     <ImageButton
-    android:id="@+id/button_1id"
-    android:layout_width="107dp"
-    android:layout_height="86dp"
-    android:layout_above="@id/blueRectangle"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentBottom="true"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="296dp"
-    android:layout_marginBottom="-2dp"
-    android:backgroundTint="#0000FF"
-    android:contentDescription="@string/description"
-    android:scaleType="fitCenter"
-    app:srcCompat="@drawable/scale" />
+        android:id="@+id/button_1id"
+        android:layout_width="107dp"
+        android:layout_height="86dp"
+        android:layout_above="@id/blueRectangle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="296dp"
+        android:layout_marginBottom="-2dp"
+        android:backgroundTint="#3A0073"
+        android:contentDescription="@string/description"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/scale" />
 
     <ImageButton
         android:id="@+id/button_2id"
@@ -88,27 +92,26 @@
         android:layout_above="@id/blueRectangle"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="275dp"
-        android:layout_marginEnd="26dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginEnd="135dp"
         android:layout_marginBottom="-2dp"
-        android:backgroundTint="#0000FF"
+        android:backgroundTint="#3A0073"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/steps" />
 
     <ImageButton
         android:id="@+id/button_3id"
-        android:layout_width="98dp"
-        android:layout_height="71dp"
+        android:layout_width="99dp"
+        android:layout_height="47dp"
         android:layout_above="@id/blueRectangle"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="676dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginBottom="-16dp"
-        android:backgroundTint="#0000FF"
+        android:layout_marginTop="679dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/dumbell" />
 

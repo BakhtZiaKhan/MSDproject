@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_color"
     tools:context=".BMITracker">
 
     <LinearLayout
@@ -20,6 +21,7 @@
             android:layout_marginBottom="20dp"
             android:text="BMI Calculator"
             android:textSize="25sp"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputEditText
@@ -29,7 +31,7 @@
             android:hint="@string/enter_weight_in_kg"
             android:inputType="numberDecimal"
             android:minHeight="50dp"
-            android:textColorHint="#3F51B5" />
+            android:textColorHint="#919191" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/height"
@@ -38,7 +40,7 @@
             android:hint="@string/enter_height_in_cm"
             android:inputType="numberDecimal"
             android:minHeight="50dp"
-            android:textColorHint="#3F51B5" />
+            android:textColorHint="#919191" />
 
         <Button
             android:id="@+id/btnSubmit"
@@ -62,8 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
-        android:background="#0000FF" />
+        android:background="@drawable/shadowed_background" />
 
     <ImageButton
         android:id="@+id/button_1id"

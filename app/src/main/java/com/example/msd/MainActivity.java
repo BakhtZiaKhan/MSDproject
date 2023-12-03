@@ -22,7 +22,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager mSensorManager;
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     ImageButton button1;
     ImageButton button2;
-
     ImageButton button3;
 
     @Override
@@ -56,46 +54,28 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         stepSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
         button1.setOnClickListener(new View.OnClickListener() {
-
-                                       @Override
-                                       public void onClick(View view) {
-
-                                           Intent intent = new Intent(MainActivity.this, BMITracker.class);
-                                           startActivity(intent);
-
-                                       }
-                                   }
-
-        );
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BMITracker.class);
+                startActivity(intent);
+            }
+        });
 
         button2.setOnClickListener(new View.OnClickListener() {
-
-                                       @Override
-                                       public void onClick(View view) {
-
-                                           Intent intent = new Intent(MainActivity.this,MainActivity .class);
-                                           startActivity(intent);
-
-                                       }
-                                   }
-
-        );
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         button3.setOnClickListener(new View.OnClickListener() {
-
-                                       @Override
-                                       public void onClick(View view) {
-
-                                           Intent intent = new Intent(MainActivity.this, ExerciseActivity.class);
-                                           startActivity(intent);
-
-                                       }
-                                   }
-
-        );
-
-
-
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ExerciseActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     protected void onResume() {
@@ -108,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
-
     protected void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(this);
@@ -120,10 +99,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             totalSteps = (int) event.values[0];
             int currentSteps = totalSteps - previewsTotalSteps;
             steps.setText(String.valueOf(currentSteps));
-
             progressBar.setProgress(currentSteps);
-
-
         }
     }
 
@@ -132,7 +108,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Long press to reset steps", Toast.LENGTH_SHORT).show();
-
             }
         });
 
@@ -147,27 +122,21 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         });
     }
 
-
     private void saveData() {
         SharedPreferences sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("key1", String.valueOf(previewsTotalSteps));
+        editor.putFloat("key1", (float) previewsTotalSteps);
         editor.apply();
     }
 
-
     private void loadData() {
         SharedPreferences sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE);
-        int savedNumber = (int) sharedPref.getFloat("key1", 0f);
-        previewsTotalSteps = savedNumber;
+        float savedNumber = sharedPref.getFloat("key1", 0f);
+        previewsTotalSteps = (int) savedNumber;
     }
-
-
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
-
-
 }

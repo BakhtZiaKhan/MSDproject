@@ -1,14 +1,8 @@
 package com.example.msd;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.os.Bundle;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
@@ -30,64 +24,62 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private int previewsTotalSteps = 0;
     private TextView steps;
     private ProgressBar progressBar;
+    private TextView userNameTextView; // TextView for displaying the user's name
 
     ImageButton button1;
     ImageButton button2;
     ImageButton button3;
+    Button button4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button1 = (ImageButton) findViewById(R.id.button_1id);
-        button2 = (ImageButton) findViewById(R.id.button_2id);
-        button3 = (ImageButton) findViewById(R.id.button_3id);
-
-        progressBar = findViewById(R.id.progressBar);
-
-        steps = findViewById(R.id.steps);
-
+        // Initialization
+        initViews();
         resetSteps();
         loadData();
+        displayUserName(); // Display the user's name
+
+        // Step Counter
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         stepSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, BMITracker.class);
-                startActivity(intent);
-            }
-        });
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ExerciseActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    protected void onResume() {
-        super.onResume();
-
         if (stepSensor == null) {
-            Toast.makeText(this, "This device has no sensor", Toast.LENGTH_SHORT).show();
-        } else {
-            mSensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_NORMAL);
+            Toast.makeText(this, "This device has no step counter sensor", Toast.LENGTH_SHORT).show();
         }
     }
 
+    private void initViews() {
+        // Initialize UI components
+        button1 = findViewById(R.id.button_1id);
+        button2 = findViewById(R.id.button_2id);
+        button3 = findViewById(R.id.button_3id);
+        button4 = findViewById(R.id.button_4id);
+        progressBar = findViewById(R.id.progressBar);
+        steps = findViewById(R.id.steps);
+        userNameTextView = findViewById(R.id.userNameTextView); // TextView for user's name
+
+        // Button Click Listeners
+        button1.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, BMITracker.class)));
+        button2.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, MainActivity.class)));
+        button3.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ExerciseActivity.class)));
+        button4.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, UserProfile.class)));
+    }
+
+    private void displayUserName() {
+        SharedPreferences sharedPreferences = getSharedPreferences("com.example.msd.sharedpreferences", MODE_PRIVATE);
+        String userName = sharedPreferences.getString("userName", "No name");
+        userNameTextView.setText(userName);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(this);
@@ -104,21 +96,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     private void resetSteps() {
-        steps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Long press to reset steps", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        steps.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                previewsTotalSteps = totalSteps;
-                steps.setText("0");
-                saveData();
-                return true;
-            }
+        steps.setOnClickListener(v -> Toast.makeText(MainActivity.this, "Long press to reset steps", Toast.LENGTH_SHORT).show());
+        steps.setOnLongClickListener(v -> {
+            previewsTotalSteps = totalSteps;
+            steps.setText("0");
+            saveData();
+            return true;
         });
     }
 
@@ -137,6 +120,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
+        // Not used
     }
 }

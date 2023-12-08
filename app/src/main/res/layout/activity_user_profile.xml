@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_color"
+    tools:context=".UserProfile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Profile"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_name"
+            android:inputType="text"
+            android:minHeight="50dp"
+            android:textColorHint="#919191" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_weight_in_kg"
+            android:inputType="numberDecimal"
+            android:minHeight="50dp"
+            android:textColorHint="#919191" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/blueRectangle"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shadowed_background" />
+
+    <ImageButton
+        android:id="@+id/button_1id"
+        android:layout_width="107dp"
+        android:layout_height="86dp"
+        android:layout_above="@id/blueRectangle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginEnd="296dp"
+        android:layout_marginBottom="-2dp"
+        android:backgroundTint="#0000FF"
+        android:contentDescription="@string/description"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/scale" />
+
+    <ImageButton
+        android:id="@+id/button_2id"
+        android:layout_width="107dp"
+        android:layout_height="86dp"
+        android:layout_above="@id/blueRectangle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="296dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="-2dp"
+        android:backgroundTint="#0000FF"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/steps" />
+
+    <ImageButton
+        android:id="@+id/button_3id"
+        android:layout_width="98dp"
+        android:layout_height="71dp"
+        android:layout_above="@id/blueRectangle"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="676dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="-16dp"
+        android:backgroundTint="#0000FF"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/dumbell" />
+
+
+</RelativeLayout>

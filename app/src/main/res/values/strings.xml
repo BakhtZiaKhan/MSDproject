@@ -2,6 +2,7 @@
     <string name="app_name">MSD</string>
     <string name="enter_weight_in_kg" >Enter your weight in kilograms</string>
     <string name="enter_height_in_cm" >Enter your height in CM</string>
+    <string name="enter_name" >Enter your name</string>
     <string name="back_to_main">Back to Main</string>
     <string name="description" >BMI </string>
     <string name="side_plank">Helps improve your posture\n1) Helps flexibility</string>

@@ -1,16 +1,16 @@
 package com.example.msd;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.content.Intent;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     ImageButton button1;
     ImageButton button2;
     ImageButton button3;
-    Button button4;
+    ImageButton button4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

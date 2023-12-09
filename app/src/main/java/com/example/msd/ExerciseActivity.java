@@ -24,6 +24,8 @@ public class ExerciseActivity extends AppCompatActivity implements ExerciseRVAda
 
     ImageButton button3;
 
+    ImageButton button4;
+
 private RecyclerView exerciseRV;
 private ArrayList<ExerciseRVModal> excerciseRVModalArrayList;
 private ExerciseRVAdapter exerciseRVAdapter;
@@ -35,6 +37,7 @@ private ExerciseRVAdapter exerciseRVAdapter;
         button1 = (ImageButton) findViewById(R.id.button_1id);
         button2 = (ImageButton) findViewById(R.id.button_2id);
         button3 = (ImageButton) findViewById(R.id.button_3id);
+        button4 = (ImageButton) findViewById(R.id.button_4id);
 
         exerciseRV = findViewById(R.id.idRVExercise);
         excerciseRVModalArrayList = new ArrayList<>();
@@ -44,47 +47,10 @@ private ExerciseRVAdapter exerciseRVAdapter;
         exerciseRV.setAdapter(exerciseRVAdapter);
         addData();
 
-        button1.setOnClickListener(new View.OnClickListener() {
-
-                                       @Override
-                                       public void onClick(View view) {
-
-                                           Intent intent = new Intent(ExerciseActivity.this, BMITracker.class);
-                                           startActivity(intent);
-
-                                       }
-                                   }
-
-        );
-
-        button2.setOnClickListener(new View.OnClickListener() {
-
-                                       @Override
-                                       public void onClick(View view) {
-
-                                           Intent intent = new Intent(ExerciseActivity.this,MainActivity .class);
-                                           startActivity(intent);
-
-                                       }
-                                   }
-
-        );
-
-        button3.setOnClickListener(new View.OnClickListener() {
-
-                                       @Override
-                                       public void onClick(View view) {
-
-                                           Intent intent = new Intent(ExerciseActivity.this, ExerciseActivity.class);
-                                           startActivity(intent);
-
-                                       }
-                                   }
-
-        );
-
-
-
+        button1.setOnClickListener(view -> startActivity(new Intent(ExerciseActivity.this, BMITracker.class)));
+        button2.setOnClickListener(view -> startActivity(new Intent(ExerciseActivity.this, MainActivity.class)));
+        button3.setOnClickListener(view -> startActivity(new Intent(ExerciseActivity.this, ExerciseActivity.class)));
+        button4.setOnClickListener(view -> startActivity(new Intent(ExerciseActivity.this, UserProfile.class)));
 
 
     }

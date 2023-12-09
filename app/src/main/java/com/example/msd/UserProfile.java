@@ -14,9 +14,8 @@ import android.content.SharedPreferences;
 
 public class UserProfile extends AppCompatActivity {
 
-    ImageButton button1;
-    private TextInputEditText nameInput;
-    private TextInputEditText weightInput;
+    ImageButton button1, button2, button3, button4;
+    private TextInputEditText nameInput, weightInput;
     private UserRoomDatabase db;
     private UserDao userDao;
     private TextView resultView; // TextView for displaying the result
@@ -26,27 +25,28 @@ public class UserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
+        // Initialization
         button1 = findViewById(R.id.button_1id);
-        button1.setOnClickListener(view -> startActivity(new Intent(UserProfile.this, BMITracker.class)));
-
-        // Initialize database and DAO
-        db = Room.databaseBuilder(getApplicationContext(),
-                UserRoomDatabase.class, "user_database").build();
-        userDao = db.userDao();
-
-        // Initialize input fields and result TextView
+        button2 = findViewById(R.id.button_2id);
+        button3 = findViewById(R.id.button_3id);
+        button4 = findViewById(R.id.button_4id);
         nameInput = findViewById(R.id.name);
         weightInput = findViewById(R.id.weight);
         resultView = findViewById(R.id.result);
 
-        // Set up button click listener
+        // Database initialization
+        db = Room.databaseBuilder(getApplicationContext(), UserRoomDatabase.class, "user_database").build();
+        userDao = db.userDao();
+
+        // Button listeners
+        button1.setOnClickListener(view -> startActivity(new Intent(UserProfile.this, BMITracker.class)));
+        button2.setOnClickListener(view -> startActivity(new Intent(UserProfile.this, MainActivity.class)));
+        button3.setOnClickListener(view -> startActivity(new Intent(UserProfile.this, ExerciseActivity.class)));
+        button4.setOnClickListener(view -> startActivity(new Intent(UserProfile.this, UserProfile.class)));
+
+        // Submit button listener
         Button submitButton = findViewById(R.id.btnSubmit);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveUserData();
-            }
-        });
+        submitButton.setOnClickListener(v -> saveUserData());
     }
 
     private void saveUserData() {
@@ -59,40 +59,32 @@ public class UserProfile extends AppCompatActivity {
             return;
         }
 
-        // Since 'weight' cannot be declared as final due to its modification, we use a separate final variable
         final float weight = weightValue;
-
-        // Create User object
         User newUser = new User(name, weight);
 
-        // Insert data into database in a separate thread
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                userDao.insertUser(newUser);
-                // Update UI after saving data
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Update the TextView to show the name of the user who just submitted
-                        resultView.setText("Submitted for: " + name);
-
-                        // Save login state, user's name, and weight in shared preferences
-                        saveUserDetails(name, weight); // Save the user's name and weight
-                    }
-                });
-            }
+        new Thread(() -> {
+            userDao.insertUser(newUser);
+            runOnUiThread(() -> {
+                displayUserData();
+                saveUserDetails(name, weight);
+            });
         }).start();
     }
 
-    private void saveLoginState(boolean isLoggedIn) {
-        SharedPreferences sharedPreferences = getSharedPreferences("com.example.msd.sharedpreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("isLoggedIn", isLoggedIn);
-        editor.apply();
+    private void displayUserData() {
+        new Thread(() -> {
+            User lastUser = userDao.getLastUser();
+            runOnUiThread(() -> {
+                if (lastUser != null) {
+                    String displayText = "Name: " + lastUser.getUsername() + "\nWeight: " + lastUser.getWeight();
+                    resultView.setText(displayText);
+                } else {
+                    resultView.setText("No user data available.");
+                }
+            });
+        }).start();
     }
 
-    // Method to save user's name and weight in shared preferences
     private void saveUserDetails(String name, float weight) {
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.msd.sharedpreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

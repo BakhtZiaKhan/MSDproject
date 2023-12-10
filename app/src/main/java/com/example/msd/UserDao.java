@@ -13,7 +13,14 @@ public interface UserDao {
     @Query("SELECT * FROM user_table")
     List<User> getAllUsers();
 
-    // Add this method to get the last user
-    @Query("SELECT * FROM user_table ORDER BY id DESC LIMIT 1") // Assuming there's an 'id' field
+    @Query("SELECT * FROM user_table ORDER BY id DESC LIMIT 1")
     User getLastUser();
+
+    // Method to check if a user with a given username exists
+    @Query("SELECT * FROM user_table WHERE username = :username")
+    User findUserByUsername(String username);
+
+    // Method to authenticate a user by username and password
+    @Query("SELECT * FROM user_table WHERE username = :username AND password = :password")
+    User getUserByUsernameAndPassword(String username, String password);
 }

@@ -8,14 +8,15 @@ public class User {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-
     private String username;
     private float weight;
+    private String password;
 
     // Constructor
-    public User(String username, float weight) {
+    public User(String username, float weight, String password) {
         this.username = username;
         this.weight = weight;
+        this.password = password;
     }
 
     // Getters and setters
@@ -42,5 +43,12 @@ public class User {
     public void setWeight(float weight) {
         this.weight = weight;
     }
-}
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}

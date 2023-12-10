@@ -1,7 +1,6 @@
 package com.example.msd;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.content.Intent;
@@ -36,22 +35,20 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialization
         initViews();
         resetSteps();
         loadData();
-        displayUserName(); // Display the user's name
 
-        // Step Counter
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         stepSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         if (stepSensor == null) {
             Toast.makeText(this, "This device has no step counter sensor", Toast.LENGTH_SHORT).show();
         }
+
+        displayUserName(); // Display the user's name
     }
 
     private void initViews() {
-        // Initialize UI components
         button1 = findViewById(R.id.button_1id);
         button2 = findViewById(R.id.button_2id);
         button3 = findViewById(R.id.button_3id);
@@ -60,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         steps = findViewById(R.id.steps);
         userNameTextView = findViewById(R.id.userNameTextView); // TextView for user's name
 
-        // Button Click Listeners
         button1.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, BMITracker.class)));
         button2.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, MainActivity.class)));
         button3.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ExerciseActivity.class)));
@@ -68,9 +64,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     private void displayUserName() {
-        SharedPreferences sharedPreferences = getSharedPreferences("com.example.msd.sharedpreferences", MODE_PRIVATE);
-        String userName = sharedPreferences.getString("userName", "No name");
-        userNameTextView.setText(userName);
+        Intent intent = getIntent();
+        String userName = intent.getStringExtra("USERNAME");
+        if (userName != null && !userName.isEmpty()) {
+            userNameTextView.setText(userName);
+        } else {
+            userNameTextView.setText("No User");
+        }
     }
 
     @Override

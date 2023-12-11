@@ -2,48 +2,33 @@ package com.example.msd;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-
-
-
 
 public class ExerciseActivity extends AppCompatActivity implements ExerciseRVAdapter.ExerciseClickInterface {
 
-    ImageButton button1;
-    ImageButton button2;
+    ImageButton button1, button2, button3, button4;
+    private RecyclerView exerciseRV;
+    private ArrayList<ExerciseRVModal> exerciseRVModalArrayList;
+    private ExerciseRVAdapter exerciseRVAdapter;
 
-    ImageButton button3;
-
-    ImageButton button4;
-
-private RecyclerView exerciseRV;
-private ArrayList<ExerciseRVModal> excerciseRVModalArrayList;
-private ExerciseRVAdapter exerciseRVAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excercise);
 
-        button1 = (ImageButton) findViewById(R.id.button_1id);
-        button2 = (ImageButton) findViewById(R.id.button_2id);
-        button3 = (ImageButton) findViewById(R.id.button_3id);
-        button4 = (ImageButton) findViewById(R.id.button_4id);
+        button1 = findViewById(R.id.button_1id);
+        button2 = findViewById(R.id.button_2id);
+        button3 = findViewById(R.id.button_3id);
+        button4 = findViewById(R.id.button_4id);
 
         exerciseRV = findViewById(R.id.idRVExercise);
-        excerciseRVModalArrayList = new ArrayList<>();
-        exerciseRVAdapter = new ExerciseRVAdapter(excerciseRVModalArrayList, this, this::onExerciseClick);
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        exerciseRV.setLayoutManager(manager);
+        exerciseRVModalArrayList = new ArrayList<>();
+        exerciseRVAdapter = new ExerciseRVAdapter(exerciseRVModalArrayList, this, this);
+        exerciseRV.setLayoutManager(new LinearLayoutManager(this));
         exerciseRV.setAdapter(exerciseRVAdapter);
         addData();
 
@@ -51,29 +36,21 @@ private ExerciseRVAdapter exerciseRVAdapter;
         button2.setOnClickListener(view -> startActivity(new Intent(ExerciseActivity.this, MainActivity.class)));
         button3.setOnClickListener(view -> startActivity(new Intent(ExerciseActivity.this, ExerciseActivity.class)));
         button4.setOnClickListener(view -> startActivity(new Intent(ExerciseActivity.this, UserProfile.class)));
-
-
     }
 
     private void addData() {
-        excerciseRVModalArrayList.add(new ExerciseRVModal("Side Plank",getResources().getString(R.string.side_plank),"https://lottie.host/05fa5a32-dd2c-4f8e-a8cb-e063df6348e7/g1Sm0J7i8m.json",20,10));
-        excerciseRVModalArrayList.add(new ExerciseRVModal("Lunges",getResources().getString(R.string.lunges),"https://lottie.host/05fa5a32-dd2c-4f8e-a8cb-e063df6348e7/g1Sm0J7i8m.json",20,10));
-        excerciseRVModalArrayList.add(new ExerciseRVModal("Stepping",getResources().getString(R.string.stepping),"https://lottie.host/05fa5a32-dd2c-4f8e-a8cb-e063df6348e7/g1Sm0J7i8m.json",20,10));
-        excerciseRVModalArrayList.add(new ExerciseRVModal("Ab Crunches",getResources().getString(R.string.ab_crunch),"https://lottie.host/05fa5a32-dd2c-4f8e-a8cb-e063df6348e7/g1Sm0J7i8m.json",20,10));
-        excerciseRVModalArrayList.add(new ExerciseRVModal("Push Ups",getResources().getString(R.string.push_ups),"https://lottie.host/05fa5a32-dd2c-4f8e-a8cb-e063df6348e7/g1Sm0J7i8m.json",20,10));
+        exerciseRVModalArrayList.add(new ExerciseRVModal("Side Plank", getResources().getString(R.string.side_plank), R.drawable.sideplank, 20, 10));
+        exerciseRVModalArrayList.add(new ExerciseRVModal("Lunges", getResources().getString(R.string.lunges), R.drawable.lungs, 20, 10));
+        exerciseRVModalArrayList.add(new ExerciseRVModal("Stepping", getResources().getString(R.string.stepping), R.drawable.stepping, 20, 10));
+        exerciseRVModalArrayList.add(new ExerciseRVModal("Ab Crunches", getResources().getString(R.string.ab_crunch), R.drawable.crunches, 20, 10));
+        exerciseRVModalArrayList.add(new ExerciseRVModal("Push Ups", getResources().getString(R.string.push_ups), R.drawable.pushups, 20, 10));
+        exerciseRVModalArrayList.add(new ExerciseRVModal("Squats", getResources().getString(R.string.squats), R.drawable.squats, 20, 10));
 
-
-
-
+        exerciseRVAdapter.notifyDataSetChanged();
     }
-
-
-
-
-
 
     @Override
     public void onExerciseClick(int position) {
-
+        // Handle the click event if needed
     }
 }

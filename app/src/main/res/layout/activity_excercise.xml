@@ -7,9 +7,8 @@
     android:background="@color/black_color"
     tools:context=".ExerciseActivity">
 
-
     <TextView
-        android:id="@id/idTVHeading"
+        android:id="@+id/idTVHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -27,7 +26,7 @@
         android:id="@+id/idLL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/idTVHeading"
+        android:layout_below="@id/idTVHeading"
         android:orientation="horizontal"
         android:weightSum="2">
 
@@ -61,8 +60,6 @@
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -95,10 +92,7 @@
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
-
-
         </LinearLayout>
-
     </LinearLayout>
 
     <View
@@ -113,10 +107,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVExercise"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_below="@id/idLL"
-        android:layout_marginTop="10dp" />
-
+        android:layout_above="@id/blueRectangle"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/exercise_rv_item" />
 
     <View
         android:id="@+id/blueRectangle"

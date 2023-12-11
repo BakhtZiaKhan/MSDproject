@@ -10,16 +10,16 @@ public class User {
     private int id;
     private String username;
     private float weight;
+    private float height;
     private String password;
 
-    // Constructor
-    public User(String username, float weight, String password) {
+    public User(String username, float weight, float height, String password) {
         this.username = username;
         this.weight = weight;
+        this.height = height;
         this.password = password;
     }
 
-    // Getters and setters
     public int getId() {
         return id;
     }
@@ -42,6 +42,14 @@ public class User {
 
     public void setWeight(float weight) {
         this.weight = weight;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
     }
 
     public String getPassword() {

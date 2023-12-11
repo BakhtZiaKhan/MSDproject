@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private int previewsTotalSteps = 0;
     private TextView steps;
     private ProgressBar progressBar;
-    private TextView userNameTextView; // TextView for displaying the user's name
+    private TextView userNameTextView;
 
     ImageButton button1;
     ImageButton button2;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             Toast.makeText(this, "This device has no step counter sensor", Toast.LENGTH_SHORT).show();
         }
 
-        displayUserName(); // Display the user's name
+        displayUserName();
     }
 
     private void initViews() {
@@ -55,22 +55,25 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         button4 = findViewById(R.id.button_4id);
         progressBar = findViewById(R.id.progressBar);
         steps = findViewById(R.id.steps);
-        userNameTextView = findViewById(R.id.userNameTextView); // TextView for user's name
+        userNameTextView = findViewById(R.id.userNameTextView);
 
-        button1.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, BMITracker.class)));
+        button1.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, BMITracker.class);
+            intent.putExtra("USERNAME", getLoggedInUsername());
+            startActivity(intent);
+        });
         button2.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, MainActivity.class)));
         button3.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ExerciseActivity.class)));
         button4.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, UserProfile.class)));
     }
 
     private void displayUserName() {
-        Intent intent = getIntent();
-        String userName = intent.getStringExtra("USERNAME");
-        if (userName != null && !userName.isEmpty()) {
-            userNameTextView.setText(userName);
-        } else {
-            userNameTextView.setText("No User");
-        }
+        userNameTextView.setText(getLoggedInUsername());
+    }
+
+    private String getLoggedInUsername() {
+        SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        return sharedPreferences.getString("LoggedInUser", "No User");
     }
 
     @Override

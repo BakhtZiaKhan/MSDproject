@@ -34,13 +34,16 @@ public class UserProfile extends AppCompatActivity {
         ImageButton button4 = findViewById(R.id.button_4id);
         Button signUpButton = findViewById(R.id.button);
 
+        // Setting up button listeners for navigation
         button1.setOnClickListener(view -> startActivity(new Intent(UserProfile.this, BMITracker.class)));
         button2.setOnClickListener(view -> startActivity(new Intent(UserProfile.this, MainActivity.class)));
         button3.setOnClickListener(view -> startActivity(new Intent(UserProfile.this, ExerciseActivity.class)));
         button4.setOnClickListener(view -> startActivity(new Intent(UserProfile.this, UserProfile.class)));
 
+        // Listener for the Sign Up button
         signUpButton.setOnClickListener(v -> startActivity(new Intent(UserProfile.this, RegistrationActivity.class)));
 
+        // Listener for the Submit button to perform login
         Button submitButton = findViewById(R.id.btnSubmit);
         submitButton.setOnClickListener(v -> loginUser());
     }
@@ -53,11 +56,15 @@ public class UserProfile extends AppCompatActivity {
             User user = userDao.getUserByUsernameAndPassword(username, password);
             runOnUiThread(() -> {
                 if (user != null) {
-                    Intent intent = new Intent(UserProfile.this, MainActivity.class);
+                    // If login is successful, pass user data to BMITracker
+                    Intent intent = new Intent(UserProfile.this, BMITracker.class);
                     intent.putExtra("USERNAME", username);
+                    intent.putExtra("WEIGHT", user.getWeight());
+                    intent.putExtra("HEIGHT", user.getHeight());
                     startActivity(intent);
                     finish();
                 } else {
+                    // If login fails, show a failure message
                     resultView.setText("Login Failed");
                 }
             });

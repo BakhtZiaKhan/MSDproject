@@ -5,72 +5,62 @@
     android:background="@color/black_color"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<!--https://www.geeksforgeeks.org/videos/how-to-create-health-fitness-application-in-android/-->
-    <ScrollView
+<!--Reference : https://www.geeksforgeeks.org/videos/how-to-create-health-fitness-application-in-android/-->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:background="#6CA2F3">
 
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/idIVExercise"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/stepping" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:background="#6CA2F3">
+            android:layout_marginStart="4dp"
+            android:layout_toEndOf="@+id/idIVExercise"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/idIVExercise"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/stepping" />
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/idTVExerciseName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_toLeftOf="@+id/idTVArrow"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_toRightOf="@+id/idIVExercise"
-                android:orientation="vertical">
+                android:fontFamily="serif"
+                android:padding="8dp"
+                android:text="Exercise Name"
+                android:textAllCaps="true"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/idTVExerciseName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:padding="8dp"
-                    android:text="Stepping"
-                    android:textAllCaps="true"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/idTVExerciseTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:padding="8dp"
+                android:text="Time"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/idTVExerciseTime"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:padding="8dp"
-                    android:text="Time:10mins"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/idTVArrow"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ic_arrow_right"
-                android:layout_centerInParent="true"
-                app:tint="@color/black" />
-
-        </RelativeLayout>
-
-    </ScrollView>
+        <ImageView
+            android:id="@+id/idTVArrow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow_right"
+            app:tint="@color/black" />
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
-    <!--End of reference-->
+<!--End of Reference -->

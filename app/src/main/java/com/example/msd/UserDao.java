@@ -5,22 +5,29 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import java.util.List;
 
+// Data Access Object (DAO) interface for the User entity.
 @Dao
 public interface UserDao {
+
+    // Method to insert a new user into the database.
     @Insert
     void insertUser(User user);
 
+    // Method to retrieve all users from the database.
     @Query("SELECT * FROM user_table")
     List<User> getAllUsers();
 
+    // Method to get the most recently added user.
     @Query("SELECT * FROM user_table ORDER BY id DESC LIMIT 1")
     User getLastUser();
 
-    // Method to check if a user with a given username exists
+    // Method to find a user by their username.
+    // Useful for checking if a user already exists during registration.
     @Query("SELECT * FROM user_table WHERE username = :username")
     User findUserByUsername(String username);
 
-    // Method to authenticate a user by username and password
+    // Method for user authentication.
+    // Checks if a user exists with the given username and password.
     @Query("SELECT * FROM user_table WHERE username = :username AND password = :password")
     User getUserByUsernameAndPassword(String username, String password);
 }

@@ -10,8 +10,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+// This class is for the BMI Tracker activity in the app.
 public class BMITracker extends AppCompatActivity {
 
+    // Declare UI components and database objects.
     ImageButton button1, button2, button3, button4;
     EditText editTextHeight;
     TextView textView, weightDisplay, userNameTextView;
@@ -24,6 +26,7 @@ public class BMITracker extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi_tracker);
 
+        // Initialize UI components.
         button1 = findViewById(R.id.button_1id);
         button2 = findViewById(R.id.button_2id);
         button3 = findViewById(R.id.button_3id);
@@ -33,29 +36,37 @@ public class BMITracker extends AppCompatActivity {
         weightDisplay = findViewById(R.id.weight);
         userNameTextView = findViewById(R.id.userNameTextView);
 
+        // Setup Room database and DAO.
         db = Room.databaseBuilder(getApplicationContext(), UserRoomDatabase.class, "user_database").build();
         userDao = db.userDao();
 
+        // Retrieve passed data (weight and height) from Intent.
         Intent intent = getIntent();
         float weight = intent.getFloatExtra("WEIGHT", 0);
         float height = intent.getFloatExtra("HEIGHT", 0);
 
+        // Display weight and height if available.
         if (weight != 0 && height != 0) {
             weightDisplay.setText(String.format("%.2f kg", weight));
             editTextHeight.setText(String.format("%.2f", height));
         }
 
+        // Display logged-in user's name.
         displayUserName();
+        // Setup button listeners for navigation and other functionalities.
         setupButtonListeners();
+        // Setup functionality to calculate and display BMI.
         calculateBMI();
     }
 
+    // Method to display the name of the logged-in user.
     private void displayUserName() {
         SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         String loggedInUser = sharedPreferences.getString("LoggedInUser", "No User");
         userNameTextView.setText(loggedInUser);
     }
 
+    // Method to calculate and display the BMI when the submit button is pressed.
     private void calculateBMI() {
         Button button = findViewById(R.id.btnSubmit);
         button.setOnClickListener(view -> {
@@ -66,6 +77,7 @@ public class BMITracker extends AppCompatActivity {
         });
     }
 
+    // Method to set up button listeners for navigation.
     private void setupButtonListeners() {
         button1.setOnClickListener(view -> startActivity(new Intent(BMITracker.this, BMITracker.class)));
         button2.setOnClickListener(view -> startActivity(new Intent(BMITracker.this, MainActivity.class)));

@@ -8,9 +8,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+// Activity for handling user registration.
 public class RegistrationActivity extends AppCompatActivity {
 
+    // EditText fields for user input.
     private EditText usernameEditText, passwordEditText, weightEditText, heightEditText;
+    // Database and DAO for user data handling.
     private UserRoomDatabase db;
     private UserDao userDao;
 
@@ -19,38 +22,50 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        // Linking the EditText fields to the UI elements.
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
         weightEditText = findViewById(R.id.weight);
         heightEditText = findViewById(R.id.height);
 
+        // Initializing database and user DAO.
         db = UserRoomDatabase.getDatabase(this);
         userDao = db.userDao();
 
+        // Setting up the submit button and its click listener.
         Button submitButton = findViewById(R.id.submit_button);
         submitButton.setOnClickListener(v -> registerUser());
     }
 
+    // Method to handle user registration.
     private void registerUser() {
+        // Extracting user input from EditText fields.
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         float weight;
         float height;
 
         try {
+            //  numerical inputs for weight and height.
             weight = Float.parseFloat(weightEditText.getText().toString());
             height = Float.parseFloat(heightEditText.getText().toString());
         } catch (NumberFormatException e) {
+            // Show error message if input is invalid.
             Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        // Using a separate thread for database operations.
         new Thread(() -> {
+            // Checking if the user already exists in the database.
             User existingUser = userDao.findUserByUsername(username);
             if (existingUser == null) {
+                // Creating a new user and inserting it into the database.
                 User newUser = new User(username, weight, height, password);
                 userDao.insertUser(newUser);
+                // Saving the username in SharedPreferences.
                 saveLoggedInUsername(username);
+                // Navigate to the MainActivity on successful registration.
                 runOnUiThread(() -> {
                     Toast.makeText(RegistrationActivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
@@ -58,6 +73,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     finish();
                 });
             } else {
+                // Notify if the user already exists.
                 runOnUiThread(() -> {
                     Toast.makeText(RegistrationActivity.this, "User already exists", Toast.LENGTH_LONG).show();
                 });
@@ -65,6 +81,7 @@ public class RegistrationActivity extends AppCompatActivity {
         }).start();
     }
 
+    // Method to save the logged-in username in SharedPreferences.
     private void saveLoggedInUsername(String username) {
         SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 // Main activity for our fitness app, responsible for step counting.
+
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     // SensorManager to manage the device's sensors.
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         return sharedPreferences.getString("LoggedInUser", "No User");
     }
-
+    // Reference : The following code is from https://www.youtube.com/watch?v=OUpR1a_9G98&t=131s
     // Register the sensor listener when the activity resumes.
     @Override
     protected void onResume() {
@@ -139,3 +140,4 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         // Not used but required to implement SensorEventListener.
     }
 }
+// Reference complete

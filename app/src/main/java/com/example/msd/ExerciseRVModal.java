@@ -1,6 +1,7 @@
 package com.example.msd;
 
 // This class represents the data model for each exercise.
+// Reference: The following code is from https://www.geeksforgeeks.org/videos/how-to-create-health-fitness-application-in-android/
 public class ExerciseRVModal {
     // Fields to store exercise data.
     private String exerciseName;
@@ -14,7 +15,7 @@ public class ExerciseRVModal {
 
         this.time = time;
     }
-
+// End of reference
     // Getter and setter methods for exercise name.
     public String getExerciseName() {
         return exerciseName;

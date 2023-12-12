@@ -5,7 +5,7 @@
     android:background="@color/black_color"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
+<!--https://www.geeksforgeeks.org/videos/how-to-create-health-fitness-application-in-android/-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -73,3 +73,4 @@
     </ScrollView>
 
 </androidx.cardview.widget.CardView>
+    <!--End of reference-->

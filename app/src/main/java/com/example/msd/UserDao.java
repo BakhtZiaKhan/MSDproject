@@ -6,6 +6,7 @@ import androidx.room.Query;
 import java.util.List;
 
 // Data Access Object (DAO) interface for the User entity.
+// Reference: Code used from https://www.geeksforgeeks.org/how-to-perform-crud-operations-in-room-database-in-android/
 @Dao
 public interface UserDao {
 
@@ -16,6 +17,7 @@ public interface UserDao {
     // Method to retrieve all users from the database.
     @Query("SELECT * FROM user_table")
     List<User> getAllUsers();
+    // End of reference
 
     // Method to get the most recently added user.
     @Query("SELECT * FROM user_table ORDER BY id DESC LIMIT 1")

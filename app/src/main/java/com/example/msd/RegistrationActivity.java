@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 // Activity for handling user registration.
+
 public class RegistrationActivity extends AppCompatActivity {
 
     // EditText fields for user input.
@@ -35,18 +36,27 @@ public class RegistrationActivity extends AppCompatActivity {
         // Setting up the submit button and its click listener.
         Button submitButton = findViewById(R.id.submit_button);
         submitButton.setOnClickListener(v -> registerUser());
+
+        // Setting up the back button to navigate to the previous screen.
+        Button backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            // Navigate back to the previous screen (MainActivity in this case).
+            Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
     }
 
     // Method to handle user registration.
+    // Reference : Code was closely based of https://www.youtube.com/watch?v=0QqAkopW31M
     private void registerUser() {
         // Extracting user input from EditText fields.
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         float weight;
         float height;
-
+// End reference
         try {
-            //  numerical inputs for weight and height.
+            // Parsing numerical inputs for weight and height.
             weight = Float.parseFloat(weightEditText.getText().toString());
             height = Float.parseFloat(heightEditText.getText().toString());
         } catch (NumberFormatException e) {

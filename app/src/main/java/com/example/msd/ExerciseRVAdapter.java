@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 // Adapter for the RecyclerView in ExerciseActivity.
+// // Reference: The following code is from https://www.geeksforgeeks.org/videos/how-to-create-health-fitness-application-in-android/
 public class ExerciseRVAdapter extends RecyclerView.Adapter<ExerciseRVAdapter.ExerciseViewHolder> {
 
     // List of exercise data and context from the Activity.
@@ -54,7 +55,7 @@ public class ExerciseRVAdapter extends RecyclerView.Adapter<ExerciseRVAdapter.Ex
             }
         });
     }
-
+// Reference complete
     // Method to return the size of the dataset.
     @Override
     public int getItemCount() {

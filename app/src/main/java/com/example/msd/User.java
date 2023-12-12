@@ -4,6 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 // Defining the User entity for the Room database.
+// Reference: Code is based of  https://www.geeksforgeeks.org/how-to-perform-crud-operations-in-room-database-in-android/
 @Entity(tableName = "user_table")
 public class User {
 
@@ -21,6 +22,7 @@ public class User {
         this.height = height;
         this.password = password;
     }
+    // End of Reference
 
     // Getters and setters for each field.
     // These methods allow for reading and updating the User's information.

@@ -56,6 +56,7 @@ public class UserProfile extends AppCompatActivity {
     }
 
     // Method for user login.
+// Reference:  code from https://www.tutorialspoint.com
     private void loginUser() {
         // Get username and password from input fields.
         String username = nameInput.getText().toString();
@@ -63,7 +64,7 @@ public class UserProfile extends AppCompatActivity {
 
         // Use a separate thread for database query.
         new Thread(() -> {
-            // Attempt to find the user with the given username and password.
+            // find the user with the given username and password.
             User user = userDao.getUserByUsernameAndPassword(username, password);
             runOnUiThread(() -> {
                 if (user != null) {
@@ -82,3 +83,4 @@ public class UserProfile extends AppCompatActivity {
         }).start();
     }
 }
+// End of reference

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black_color"
     tools:context=".ExerciseActivity">
-
+    <!-- https://www.geeksforgeeks.org/videos/how-to-create-health-fitness-application-in-android/-->
     <TextView
         android:id="@+id/idTVHeading"
         android:layout_width="match_parent"
@@ -114,7 +114,7 @@
         android:paddingBottom="80dp"
         android:clipToPadding="false"
         tools:listitem="@layout/exercise_rv_item" />
-
+<!--End of Reference-->
     <View
         android:id="@+id/blueRectangle"
         android:layout_width="match_parent"

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 // This class is for the Exercise Activity in our app.
+// Reference: The following code is from https://www.geeksforgeeks.org/videos/how-to-create-health-fitness-application-in-android/
 public class ExerciseActivity extends AppCompatActivity implements ExerciseRVAdapter.ExerciseClickInterface {
 
     // Initializing the image buttons for navigation.
@@ -39,6 +40,7 @@ public class ExerciseActivity extends AppCompatActivity implements ExerciseRVAda
 
         // Populating the exercise list.
         addData();
+        // Reference complete
 
         // Setting up button click listeners for navigation between activities.
         button1.setOnClickListener(view -> startActivity(new Intent(ExerciseActivity.this, BMITracker.class)));

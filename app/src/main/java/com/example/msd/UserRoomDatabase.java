@@ -6,6 +6,7 @@ import androidx.room.RoomDatabase;
 import android.content.Context;
 
 // Annotation to define this class as a Room Database with a single entity (User) and a version number.
+// Reference: https://www.geeksforgeeks.org/how-to-perform-crud-operations-in-room-database-in-android/
 @Database(entities = {User.class}, version = 2, exportSchema = false)
 public abstract class UserRoomDatabase extends RoomDatabase {
 
@@ -33,3 +34,4 @@ public abstract class UserRoomDatabase extends RoomDatabase {
         return INSTANCE;
     }
 }
+// End of Reference

@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/black_color"
     tools:context=".ExerciseActivity">
-
-
+    <!-- https://www.geeksforgeeks.org/videos/how-to-create-health-fitness-application-in-android/-->
     <TextView
-        android:id="@id/idTVHeading"
+        android:id="@+id/idTVHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -27,7 +26,7 @@
         android:id="@+id/idLL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/idTVHeading"
+        android:layout_below="@id/idTVHeading"
         android:orientation="horizontal"
         android:weightSum="2">
 
@@ -46,7 +45,7 @@
                 android:padding="9dp"
                 android:text="150"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -59,10 +58,8 @@
                 android:text="KCAL"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -80,7 +77,7 @@
                 android:padding="9dp"
                 android:text="50-55"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -93,12 +90,9 @@
                 android:text="Min"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
-
-
         </LinearLayout>
-
     </LinearLayout>
 
     <View
@@ -113,76 +107,80 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVExercise"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_below="@id/idLL"
-        android:layout_marginTop="10dp" />
-
-
+        android:layout_above="@id/blueRectangle"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/exercise_rv_item" />
+<!--End of Reference-->
     <View
         android:id="@+id/blueRectangle"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:background="#0000FF" />
-
+        android:background="@drawable/shadowed_background" />
 
     <ImageButton
         android:id="@+id/button_1id"
-        android:layout_width="107dp"
-        android:layout_height="86dp"
+        android:layout_width="110dp"
+        android:layout_height="78dp"
         android:layout_above="@id/blueRectangle"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="296dp"
-        android:layout_marginBottom="-2dp"
-        android:backgroundTint="#0000FF"
+        android:layout_marginStart="91dp"
+        android:layout_marginEnd="210dp"
+        android:layout_marginBottom="-7dp"
+        android:backgroundTint="#3A0073"
         android:contentDescription="@string/description"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/scale" />
 
     <ImageButton
         android:id="@+id/button_2id"
-        android:layout_width="107dp"
-        android:layout_height="84dp"
+        android:layout_width="116dp"
+        android:layout_height="78dp"
         android:layout_above="@id/blueRectangle"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="275dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="-2dp"
-        android:backgroundTint="#0000FF"
+        android:layout_marginStart="185dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="-6dp"
+        android:backgroundTint="#3A0073"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/steps" />
 
     <ImageButton
         android:id="@+id/button_3id"
-        android:layout_width="98dp"
-        android:layout_height="71dp"
+        android:layout_width="72dp"
+        android:layout_height="37dp"
         android:layout_above="@id/blueRectangle"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="676dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginBottom="-16dp"
-        android:backgroundTint="#0000FF"
+        android:layout_marginTop="694dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="0dp"
+        android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/dumbell" />
 
-
-
-
-
-
-
-
-
-
-
-
+    <ImageButton
+        android:id="@+id/button_4id"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/blueRectangle"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="687dp"
+        android:layout_marginEnd="324dp"
+        android:layout_marginBottom="-4dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/user_pic" />
 
 </RelativeLayout>
